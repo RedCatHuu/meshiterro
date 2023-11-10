@@ -12,8 +12,11 @@ class PostImagesController < ApplicationController
     # current_user.idでログイン中のユーザーのidを取得できる。
     # 投稿データのuser.idにcurrent.user.idをつける。
     @post_image.user_id = current_user.id
-    @post_image.save
-    redirect_to post_images_path
+    if @post_image.save
+      redirect_to post_images_path
+    else 
+      render :new
+    end 
   end 
   
   def index
