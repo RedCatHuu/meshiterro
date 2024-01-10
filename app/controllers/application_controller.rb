@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     #このメソッドは、devise_parameter_sanitizer.permitメソッドを使うことで
     #ユーザー登録(sign_up)の際に、ユーザー名(name)の
     #データ操作を許可しています。
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
   end
   
 end
